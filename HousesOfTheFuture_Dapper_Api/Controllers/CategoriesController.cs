@@ -18,13 +18,13 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
         [HttpGet]
         public async Task<IActionResult> CategoryList()
         {
-            var values= await _categoryRepository.GetAllCategoryAsync();
+            var values = await _categoryRepository.GetAllCategoryAsync();
             return Ok(values);
         }
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
-             _categoryRepository.CreateCategory(createCategoryDto);
+            _categoryRepository.CreateCategory(createCategoryDto);
             return Ok("Kategori Başarılı Bir Şekilde Eklendi ");
         }
         [HttpDelete]
@@ -40,5 +40,12 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
             _categoryRepository.UpdateCategory(updateCategoryDto);
             return Ok("Kategori Başarıyla Güncellendi");
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCategory(int id)
+        {
+            var value = _categoryRepository.GetCategory(id);
+            return Ok(value);  
+        }
+
     }
 }
