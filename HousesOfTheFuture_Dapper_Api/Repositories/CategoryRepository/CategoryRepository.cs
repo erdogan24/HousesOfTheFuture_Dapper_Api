@@ -41,7 +41,7 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.CategoryRepository
             using (var connection = _context.CreateConnection()) {
                 var values =await connection.QueryAsync<ResultCategoryDto>(query);
                 return values.ToList();
-        }
+            }
         }
 
         public async Task<GetByIDCategoryDto> GetCategory(int id)
