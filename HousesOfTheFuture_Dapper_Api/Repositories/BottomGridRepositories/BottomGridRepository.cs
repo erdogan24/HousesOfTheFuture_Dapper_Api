@@ -1,9 +1,20 @@
-﻿using HousesOfTheFuture_Dapper_Api.Dtos.BottomGridDtos;
+﻿using Dapper;
+using HousesOfTheFuture_Dapper_Api.Dtos.BottomGridDtos;
+using HousesOfTheFuture_Dapper_Api.Dtos.ProductDtos;
+using HousesOfTheFuture_Dapper_Api.Models.DapperContext;
 
 namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
 {
     public class BottomGridRepository : IBottomGridRepository
     {
+
+        private readonly Context _context;
+
+        public BottomGridRepository(Context context)
+        {
+            _context = context;
+        }
+      
         public void CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
             throw new NotImplementedException();
@@ -14,9 +25,14 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
             throw new NotImplementedException();
         }
 
-        public Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
+        public async Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
         {
-            throw new NotImplementedException();
+            string query = "Select * From BottomGrid";
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryAsync<ResultBottomGridDto>(query);
+                return values.ToList();
+            }
         }
 
         public Task<GetBottomGridDto> GetBottomGrid(int id)
