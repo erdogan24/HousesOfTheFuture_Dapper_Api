@@ -27,7 +27,7 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
             _categoryRepository.CreateCategory(createCategoryDto);
             return Ok("Kategori Başarılı Bir Şekilde Eklendi ");
         }
-        [HttpDelete ("{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             _categoryRepository.DeleteCategory(id);
@@ -44,7 +44,7 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
         public async Task<IActionResult> GetCategory(int id)
         {
             var value = await _categoryRepository.GetCategory(id);
-            return Ok(value);  
+            return Ok(value);
         }
 
     }
