@@ -17,7 +17,7 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44314/api/ServiceDetail");
+            var responseMessage = await client.GetAsync("https://localhost:44314/api/Services");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -28,27 +28,28 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult CreateServiceDetail()
+        public IActionResult CreateService()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateServiceDetail(CreateServiceDto createServiceDetailDto)
+        public async Task<IActionResult> CreateService(CreateServiceDto createServiceDto)
         {
+            createServiceDto.ServiceStatus = true;
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createServiceDetailDto);
+            var jsonData = JsonConvert.SerializeObject(createServiceDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:44314/api/ServiceDetail", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:44314/api/Services", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             return View();
         }
-        public async Task<IActionResult> DeleteServiceDetail(int id)
+        public async Task<IActionResult> DeleteService(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:44314/api/ServiceDetail/{id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:44314/api/Services/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -56,10 +57,10 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateServiceDetail(int id)
+        public async Task<IActionResult> UpdateService(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:44314/api/ServiceDetail/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:44314/api/Services/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -70,12 +71,12 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateServiceDetail(UpdateServiceDto updateServiceDetailDto)
-        {
+        public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
+        {   
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateServiceDetailDto);
+            var jsonData = JsonConvert.SerializeObject(updateServiceDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:44314/api/ServiceDetail/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:44314/api/Services/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

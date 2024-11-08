@@ -1,4 +1,5 @@
-﻿using HousesOfTheFuture_Dapper_UI.DTOS.WhoWeAreDtos;
+﻿using HousesOfTheFuture_Dapper_UI.DTOS.ServiceDtos;
+using HousesOfTheFuture_Dapper_UI.DTOS.WhoWeAreDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
