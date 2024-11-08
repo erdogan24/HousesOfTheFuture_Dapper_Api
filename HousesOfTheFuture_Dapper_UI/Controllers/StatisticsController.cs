@@ -61,13 +61,68 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
             ViewBag.categoryCount = jsonData7;
             #endregion
 
-            #region İstatistik4
+            #region İstatistik8
             var client8 = _httpClientFactory.CreateClient();
             var responseMessage8 = await client8.GetAsync("https://localhost:44314/api/Statistics/CategoryNameByMaxProductCount");
             var jsonData8 = await responseMessage8.Content.ReadAsStringAsync();
             ViewBag.categoryNameByMaxProductCount = jsonData8;
             #endregion
 
+            #region İstatistik9
+            var client9 = _httpClientFactory.CreateClient();
+            var responseMessage9 = await client9.GetAsync("https://localhost:44314/api/Statistics/CityNameByMaxProductCount");
+            var jsonData9 = await responseMessage9.Content.ReadAsStringAsync();
+            ViewBag.cityNameByMaxProductCount = jsonData9;
+            #endregion
+
+            #region İstatistik10
+            var client10 = _httpClientFactory.CreateClient();
+            var responseMessage10 = await client10.GetAsync("https://localhost:44314/api/Statistics/DifferentCityCount");
+            var jsonData10 = await responseMessage10.Content.ReadAsStringAsync();
+            ViewBag.differentCityCount = jsonData10;
+            #endregion
+
+            #region İstatistik11
+            var client11 = _httpClientFactory.CreateClient();
+            var responseMessage11 = await client11.GetAsync("https://localhost:44314/api/Statistics/EmployeeNameByMaxProductCount");
+            var jsonData11 = await responseMessage11.Content.ReadAsStringAsync();
+            ViewBag.employeeNameByMaxProductCount = jsonData11;
+            #endregion
+
+            #region İstatistik12
+            var client12 = _httpClientFactory.CreateClient();
+            var responseMessage12 = await client12.GetAsync("https://localhost:44314/api/Statistics/LastProductPrice");
+            var jsonData12 = await responseMessage12.Content.ReadAsStringAsync();
+            ViewBag.lastProductPrice = jsonData12;
+            #endregion
+
+            #region İstatistik13
+            var client13 = _httpClientFactory.CreateClient();
+            var responseMessage13 = await client13.GetAsync("https://localhost:44314/api/Statistics/NewestBuildingYear");
+            var jsonData13 = await responseMessage13.Content.ReadAsStringAsync();
+            ViewBag.newestBuildingYear = jsonData13;
+            #endregion
+
+            #region İstatistik14
+            var client14 = _httpClientFactory.CreateClient();
+            var responseMessage14 = await client14.GetAsync("https://localhost:44314/api/Statistics/OldestBuildingYear");
+            var jsonData14 = await responseMessage14.Content.ReadAsStringAsync();
+            ViewBag.oldestBuildingYear = jsonData14;
+            #endregion
+
+            #region İstatistik15
+            var client15 = _httpClientFactory.CreateClient();
+            var responseMessage15 = await client15.GetAsync("https://localhost:44314/api/Statistics/PassiveCategoryCount");
+            var jsonData15 = await responseMessage15.Content.ReadAsStringAsync();
+            ViewBag.passiveCategoryCount = jsonData15;
+            #endregion
+
+            #region İstatistik16
+            var client16 = _httpClientFactory.CreateClient();
+            var responseMessage16 = await client16.GetAsync("https://localhost:44314/api/Statistics/ProductCount");
+            var jsonData16 = await responseMessage16.Content.ReadAsStringAsync();
+            ViewBag.productCount = jsonData16;
+            #endregion
 
             return View();
         }
