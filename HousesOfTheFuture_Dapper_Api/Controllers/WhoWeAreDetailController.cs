@@ -30,7 +30,7 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
             _whoWeAreDetailRepository.CreateWhoWeAreDetail(createWhoWeAreDetailDto);
             return Ok("Hakkımızda kısmı Başarılı Bir Şekilde Eklendi ");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWhoWeAreDetail(int id)
         {
             _whoWeAreDetailRepository.DeleteWhoWeAreDetail(id);
