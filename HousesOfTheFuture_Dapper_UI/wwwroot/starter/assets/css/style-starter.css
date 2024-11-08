@@ -11174,13 +11174,13 @@ a.title-small {
   border-bottom-left-radius: var(--border-radius);
   height: 100%; }
 
-.w3l-left-img1 {
+/*.w3l-left-img1 {
   background: url(../images/who1.jpg) no-repeat center center;
   background-size: cover;
   position: relative;
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
-  height: 100%; }
+  height: 100%; }*/
 
 .w3l-left-img2 {
   background: url(../images/about1.jpg) no-repeat center center;
