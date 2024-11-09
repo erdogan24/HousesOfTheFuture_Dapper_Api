@@ -15,7 +15,7 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
         {
             _context = context;
         }
-      
+
         public async void CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
             string query = "insert into BottomGrid (Icon , Title, Description) values (@Icon,@Title, @Description)";

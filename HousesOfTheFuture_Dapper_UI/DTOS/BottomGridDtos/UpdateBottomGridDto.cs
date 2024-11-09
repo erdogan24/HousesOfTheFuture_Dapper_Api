@@ -1,6 +1,6 @@
-﻿namespace HousesOfTheFuture_Dapper_Api.Dtos.BottomGridDtos
+﻿namespace HousesOfTheFuture_Dapper_UI.DTOS.BottomGridDtos
 {
-    public class GetBottomGridDto
+    public class UpdateBottomGridDto
     {
         public int BottomGridID { get; set; }
         public string Icon { get; set; }

@@ -1,5 +1,5 @@
 ﻿using HousesOfTheFuture_Dapper_Api.Dtos.ServiceDtos;
-using HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepository;
+using HousesOfTheFuture_Dapper_Api.Repositories.ServiceRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +16,8 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
             _serviceRepository = serviceRepository;
         }
         [HttpGet]
-        public async Task< IActionResult> GetServiceList()
-        { 
+        public async Task<IActionResult> GetServiceList()
+        {
             var value = await _serviceRepository.GetAllServiceAsync();
             return Ok(value);
         }
@@ -25,7 +25,7 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateService(CreateServiceDto createServiceDto)
         {
-               _serviceRepository.CreateService(createServiceDto);
+            _serviceRepository.CreateService(createServiceDto);
             return Ok("Hizmet kısmı Başarılı Bir Şekilde Eklendi ");
         }
         [HttpDelete("{id}")]

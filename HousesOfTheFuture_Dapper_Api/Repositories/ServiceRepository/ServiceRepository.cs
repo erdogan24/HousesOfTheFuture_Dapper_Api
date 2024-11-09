@@ -22,7 +22,7 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.ServiceRepository
 
             parameters.Add("@serviceName", createServiceDto.ServiceName);
             parameters.Add("@serviceStatus", true);
-            
+
 
             using (var connection = _context.CreateConnection())
             {
@@ -70,7 +70,7 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.ServiceRepository
             parameters.Add("@serviceName", updateServiceDto.ServiceName);
             parameters.Add("@serviceStatus", updateServiceDto.ServiceStatus);
             parameters.Add("@serviceID", updateServiceDto.ServiceID);
-            
+
             using (var connection = _context.CreateConnection())
             {
                 await connection.ExecuteAsync(query, parameters);

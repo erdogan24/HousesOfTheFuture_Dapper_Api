@@ -1,15 +1,15 @@
-﻿using HousesOfTheFuture_Dapper_UI.DTOS.ServiceDtos;
+﻿using HousesOfTheFuture_Dapper_UI.DTOS.BottomGridDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HousesOfTheFuture_Dapper_UI.Controllers
 {
-    public class ServiceController : Controller
+    public class BottomGridController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ServiceController(IHttpClientFactory httpClientFactory)
+        public BottomGridController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -17,39 +17,39 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44314/api/Services");
+            var responseMessage = await client.GetAsync("https://localhost:44314/api/BottomGrids");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultServiceDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultBottomGridDto>>(jsonData);
                 return View(values);
 
             }
             return View();
         }
         [HttpGet]
-        public IActionResult CreateService()
+        public IActionResult CreateBottomGrid()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateService(CreateServiceDto createServiceDto)
+        public async Task<IActionResult> CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
-            createServiceDto.ServiceStatus = true;
+            
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createServiceDto);
+            var jsonData = JsonConvert.SerializeObject(createBottomGridDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:44314/api/Services", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:44314/api/BottomGrids", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             return View();
         }
-        public async Task<IActionResult> DeleteService(int id)
+        public async Task<IActionResult> DeleteBottomGrid(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:44314/api/Services/{id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:44314/api/BottomGrids/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -57,26 +57,26 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateService(int id)
+        public async Task<IActionResult> UpdateBottomGrid(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:44314/api/Services/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:44314/api/BottomGrids/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateServiceDto>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateBottomGridDto>(jsonData);
                 return View(values);
 
             }
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
+        public async Task<IActionResult> UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateServiceDto);
+            var jsonData = JsonConvert.SerializeObject(updateBottomGridDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:44314/api/Services/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:44314/api/BottomGrids/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
