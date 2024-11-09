@@ -1,5 +1,5 @@
 ﻿using HousesOfTheFuture_Dapper_Api.Dtos.ServiceDtos;
-using HousesOfTheFuture_Dapper_Api.Repositories.ServiceRepository;
+using HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
