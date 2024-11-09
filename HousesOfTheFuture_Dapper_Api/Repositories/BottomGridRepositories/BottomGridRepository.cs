@@ -32,9 +32,15 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
             }
         }
 
-        public void DeleteBottomGrid(int id)
+        public async void DeleteBottomGrid(int id)
         {
-            throw new NotImplementedException();
+            string query = "Delete From BottomGrid Where BottomGridID=@bottomGridID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@bottomGridID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
         public async Task<List<ResultBottomGridDto>> GetAllBottomGridAsync()
@@ -47,9 +53,16 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
             }
         }
 
-        public Task<GetBottomGridDto> GetBottomGrid(int id)
+        public async Task<GetBottomGridDto> GetBottomGrid(int id)
         {
-            throw new NotImplementedException();
+            string query = "Select * From BottomGrid Where BottomGridID=@bottomGridID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@bottomGridID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryFirstOrDefaultAsync<GetBottomGridDto>(query, parameters);
+                return values;
+            }
         }
 
         public void UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
