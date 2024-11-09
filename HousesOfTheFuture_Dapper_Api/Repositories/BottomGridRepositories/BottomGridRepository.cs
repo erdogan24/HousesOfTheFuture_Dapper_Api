@@ -65,9 +65,19 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
             }
         }
 
-        public void UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
+        public async void UpdateBottomGrid(UpdateBottomGridDto updateBottomGridDto)
         {
-            throw new NotImplementedException();
+            string query = "Update BottomGrid Set Icon=@icon,Title=@title ,Description =@description where BottomGridID = @bottomGridID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@Icon", updateBottomGridDto.Icon);
+            parameters.Add("@Title", updateBottomGridDto.Title);
+            parameters.Add("@Description", updateBottomGridDto.Description);
+            parameters.Add("@bottomGridID", updateBottomGridDto.BottomGridID);
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
     }
 }
