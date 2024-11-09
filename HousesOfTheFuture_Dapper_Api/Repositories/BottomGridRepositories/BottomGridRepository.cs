@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using HousesOfTheFuture_Dapper_Api.Dtos.BottomGridDtos;
 using HousesOfTheFuture_Dapper_Api.Dtos.ProductDtos;
+using HousesOfTheFuture_Dapper_Api.Dtos.ServiceDtos;
 using HousesOfTheFuture_Dapper_Api.Models.DapperContext;
 
 namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
@@ -15,9 +16,20 @@ namespace HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories
             _context = context;
         }
       
-        public void CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
+        public async void CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
-            throw new NotImplementedException();
+            string query = "insert into BottomGrid (Icon , Title, Description) values (@Icon,@Title, @Description)";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("@Icon", createBottomGridDto.Icon);
+            parameters.Add("@Title", createBottomGridDto.Title);
+            parameters.Add("@Description", createBottomGridDto.Description);
+
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, parameters);
+            }
         }
 
         public void DeleteBottomGrid(int id)
