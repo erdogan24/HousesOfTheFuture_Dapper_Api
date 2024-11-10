@@ -9,17 +9,17 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4" style="color: red;">Personel Listesi</h6> <!-- Başlık kırmızı -->
+                <h6 class="mb-4" style="color: red;">Personel Listesi</h6> 
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col" style="color: red;">#</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Personel Adı</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Unvan</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Durum</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Sil</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Güncelle</th> <!-- Başlık kırmızı -->
+                                <th scope="col" style="color: red;">#</th> 
+                                <th scope="col" style="color: red;">Personel Adı</th> 
+                                <th scope="col" style="color: red;">Unvan</th> 
+                                <th scope="col" style="color: red;">Durum</th> 
+                                <th scope="col" style="color: red;">Sil</th> 
+                                <th scope="col" style="color: red;">Güncelle</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -27,10 +27,10 @@
                             {
                                 count++;
                                 <tr>
-                                    <th scope="row" style="color: darkblue;">@count</th> <!-- İçerik lacivert -->
-                                    <td style="color: navy;">@item.Name</td> <!-- İçerik lacivert -->
-                                    <td style="color: darkblue;">@item.Title</td> <!-- Unvanı lacivert yap -->
-                                    <td style="color: darkblue;">@item.Status</td> <!-- Durumu lacivert yap -->
+                                    <th scope="row" style="color: darkblue;">@count</th> 
+                                    <td style="color: navy;">@item.Name</td> 
+                                    <td style="color: darkblue;">@item.Title</td> 
+                                    <td style="color: darkblue;">@item.Status</td> 
                                     <td><a href="/Employee/DeleteEmployee/@item.EmployeeId" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/Employee/UpdateEmployee/@item.EmployeeId" class="btn btn-outline-success">Güncelle</a></td>
                                 </tr>

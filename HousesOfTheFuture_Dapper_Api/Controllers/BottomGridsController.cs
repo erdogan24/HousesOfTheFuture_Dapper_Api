@@ -26,7 +26,7 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
         public async Task<IActionResult> CreateBottomGrid(CreateBottomGridDto createBottomGridDto)
         {
             _bottomGridRepository.CreateBottomGrid(createBottomGridDto);
-            return Ok("Veri kısmı Başarılı Bir Şekilde Eklendi ");
+            return Ok("Veri  Başarılı Bir Şekilde Eklendi ");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBottomGrid(int id)
