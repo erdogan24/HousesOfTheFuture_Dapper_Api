@@ -8,37 +8,49 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4" style="color: red;">İlan Listesi</h6> <!-- Başlık kırmızı -->
+                <h6 class="mb-4" style="color: red;">İlan Listesi</h6> 
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col" style="color: red;">#</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">İlan Başlığı</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Şehir</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">İlçe</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Kategori</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Fiyat</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Tür</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Sil</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Güncelle</th> <!-- Başlık kırmızı -->
-                                <th scope="col" style="color: red;">Sitede Gör</th> <!-- Başlık kırmızı -->
+                                <th scope="col" style="color: red;">#</th> 
+                                <th scope="col" style="color: red;">İlan Başlığı</th> 
+                                <th scope="col" style="color: red;">Şehir</th> 
+                                <th scope="col" style="color: red;">İlçe</th> 
+                                <th scope="col" style="color: red;">Kategori</th> 
+                                <th scope="col" style="color: red;">Fiyat</th> 
+                               @*  <th scope="col" style="color: red;">Tür</th> *@ 
+                                <th scope="col" style="color: red;">Sil</th> 
+                                <th scope="col" style="color: red;">Güncelle</th> 
+                                <th scope="col" style="color: red;">Sitede Gör</th> 
+                                <th scope="col" style="color: red;">Günün Fırsatı</th> 
+                                
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <th scope="row" style="color: darkblue;">@item.productID</th> <!-- İçerik lacivert -->
-                                    <td style="color: darkblue;">@item.title</td> <!-- İçerik lacivert -->
-                                    <td style="color: darkblue;">@item.city</td> <!-- İçerik lacivert -->
-                                    <td style="color: darkblue;">@item.district</td> <!-- İçerik lacivert -->
-                                    <td style="color: darkblue;">@item.categoryName</td> <!-- İçerik lacivert -->
-                                    <td style="color: darkblue;">@item.price</td> <!-- İçerik lacivert -->
+                                    <th scope="row" style="color: darkblue;">@item.productID</th> 
+                                    <td style="color: darkblue;">@item.title</td> 
+                                    <td style="color: darkblue;">@item.city</td> 
+                                    <td style="color: darkblue;">@item.district</td> 
+                                    <td style="color: darkblue;">@item.categoryName</td> 
+                                    <td style="color: darkblue;">@item.price</td> 
 
                                     <td><a href="/Product/DeleteProduct/@item.productID" class="btn btn-outline-danger">Sil</a></td>
                                     <td><a href="/Product/UpdateProduct/@item.productID" class="btn btn-outline-success">Güncelle</a></td>
                                     <td><a href="/Product/ProductDetail/@item.productID" class="btn btn-outline-primary">Sitede Gör</a></td>
+                                    <td>
+                                        @if(item.dealOfTheDay == true)
+                                        {
+                                            <a href="/Product/ProductDetail/@item.productID" class="btn btn-outline-secondary">Pasif Yap</a>
+                                        }
+                                        @if (item.dealOfTheDay == false)
+                                        {
+                                            <a href="/Product/ProductDetail/@item.productID" class="btn btn-outline-warning">Aktif Yap</a>
+                                        }
+                                    </td>
 
                                 </tr>
                             }
