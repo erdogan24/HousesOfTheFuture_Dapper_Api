@@ -21,7 +21,7 @@ namespace HousesOfTheFuture_Dapper_UI.ViewComponents.Dashboard
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultLast5ProductWithCategoryDto>>(jsonData);
                 return View(values);
 
             }
