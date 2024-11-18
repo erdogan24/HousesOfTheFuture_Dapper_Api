@@ -8,6 +8,7 @@ using HousesOfTheFuture_Dapper_Api.Repositories.ProductRepository;
 using HousesOfTheFuture_Dapper_Api.Repositories.ServiceRepository;
 using HousesOfTheFuture_Dapper_Api.Repositories.StatisticsRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.TestimonialRepositories;
+using HousesOfTheFuture_Dapper_Api.Repositories.ToDoListRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.WhoWeAreRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,7 @@ builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
 builder.Services.AddTransient<ITestimonialRepository, TestimonialRepository>();
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IContactRepository, ContactRepository>();
+builder.Services.AddTransient<IToDoListRepository, ToDoListRepository>();
 
 
 
