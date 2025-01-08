@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using HousesOfTheFuture_Dapper_Api.Dtos.LoginDtos;
 using HousesOfTheFuture_Dapper_Api.Models.DapperContext;
+using HousesOfTheFuture_Dapper_Api.Tools;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,15 +23,23 @@ namespace HousesOfTheFuture_Dapper_Api.Controllers
         {
 
             string query = "Select * From AppUser Where Username=@username and Password=@password";
+            string query2 = "Select UserId From AppUser Where Username=@username and Password=@password";
+
             var parameters = new DynamicParameters();
             parameters.Add("@username", loginDto.Username);
             parameters.Add("@password", loginDto.Password);
             using (var connection = _context.CreateConnection())
             {
                 var values =await connection.QueryFirstOrDefaultAsync<CreateLoginDto>(query,parameters);
+                var values2 = await connection.QueryFirstAsync<GetAppUserIdDto>(query2,parameters);
+                
                 if (values != null) {
 
-                    return Ok("Başarılı");
+                    GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
+                    model.Username = values.Username;
+                    model.Id = values2.UserId;
+                    var token = JwtTokenGenerator.GenerateToken(model);
+                    return Ok(token);
                 }
                 else
                 {
