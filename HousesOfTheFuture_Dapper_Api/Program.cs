@@ -4,6 +4,7 @@ using HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.CategoryRepository;
 using HousesOfTheFuture_Dapper_Api.Repositories.ContactRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.EmployeeRepositories;
+using HousesOfTheFuture_Dapper_Api.Repositories.EstateAgentRepositories.DashboardRepositories.ChartRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.EstateAgentRepositories.DashboardRepositories.StatisticRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.PopularLocationRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.ProductRepository;
@@ -31,6 +32,7 @@ builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IContactRepository, ContactRepository>();
 builder.Services.AddTransient<IToDoListRepository, ToDoListRepository>();
 builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
+builder.Services.AddTransient<IChartRepository, ChartRepository>();
 
 
 
