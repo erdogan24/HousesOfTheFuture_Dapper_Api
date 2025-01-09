@@ -1,10 +1,12 @@
 ﻿using HousesOfTheFuture_Dapper_UI.DTOS.EmployeeDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HousesOfTheFuture_Dapper_UI.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -15,7 +17,9 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
         }
 
         public async Task<IActionResult> Index()
-        {
+        {   
+            
+
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:44314/api/Employees");
             if (responseMessage.IsSuccessStatusCode)
