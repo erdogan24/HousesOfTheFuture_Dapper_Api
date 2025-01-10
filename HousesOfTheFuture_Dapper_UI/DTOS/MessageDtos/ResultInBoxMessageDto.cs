@@ -1,4 +1,4 @@
-﻿namespace HousesOfTheFuture_Dapper_Api.Dtos.MessageDtos
+﻿namespace HousesOfTheFuture_Dapper_UI.DTOS.MessageDtos
 {
     public class ResultInBoxMessageDto
     {
@@ -8,6 +8,5 @@
         public string Detail { get; set; }
         public DateTime SendDate { get; set; }
         public bool IsRead { get; set; }
-
     }
 }

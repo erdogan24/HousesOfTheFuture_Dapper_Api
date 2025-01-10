@@ -1,7 +1,7 @@
 ﻿@model List<HousesOfTheFuture_Dapper_UI.DTOS.ProductDtos.ResultProductAdvertListWithCategoryByEmployeeDto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ActiveAdverts";
     Layout = "~/Areas/EstateAgent/Views/LayoutEstateAgent/Index.cshtml";
     int count = 0;
 }
@@ -10,7 +10,7 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4" style="color: red;">Yayınladığınız İlan Listesi</h6>
+                <h6 class="mb-4" style="color: red;">Aktif İlan Listesi</h6>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -21,6 +21,7 @@
                                 <th scope="col" style="color: red;">Fiyat</th>
                                 @*  <th scope="col" style="color: red;">Tür</th> *@
                                 <th scope="col" style="color: red;">Sil</th>
+                                <th scope="col" style="color: red;">Pasif Yap</th>
                                 <th scope="col" style="color: red;">Güncelle</th>
                                 <th scope="col" style="color: red;">Sitede Gör</th>
 
@@ -37,6 +38,7 @@
                                     <td style="color: darkblue;">@item.price</td>
 
                                     <td><a href="/Product/DeleteProduct/@item.productId" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Product/DeleteProduct/@item.productId" class="btn btn-outline-dark">Pasif Yap</a></td>
                                     <td><a href="/Product/UpdateProduct/@item.productId" class="btn btn-outline-success">Güncelle</a></td>
                                     <td><a href="/Product/ProductDetail/@item.productId" class="btn btn-outline-primary">Sitede Gör</a></td>
                                     
