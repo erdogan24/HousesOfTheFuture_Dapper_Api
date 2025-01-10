@@ -9,6 +9,7 @@ namespace HousesOfTheFuture_Dapper_UI.ViewComponents.EstateAgent
 
         private readonly IHttpClientFactory _httpClientFactory;
 
+
         public _EstateAgentDashboardChartComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
