@@ -4,12 +4,11 @@ using Newtonsoft.Json;
 
 namespace HousesOfTheFuture_Dapper_UI.ViewComponents.EstateAgent
 {
-    public class _EstateAgentDashboardChartComponentPartial:ViewComponent
+    public class _EstateAgentLast5ProductComponentPartial:ViewComponent
     {
-
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _EstateAgentDashboardChartComponentPartial(IHttpClientFactory httpClientFactory)
+        public _EstateAgentLast5ProductComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
