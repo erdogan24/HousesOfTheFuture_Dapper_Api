@@ -9,6 +9,7 @@ using HousesOfTheFuture_Dapper_Api.Repositories.EstateAgentRepositories.Dashboar
 using HousesOfTheFuture_Dapper_Api.Repositories.EstateAgentRepositories.DashboardRepositories.StatisticRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.MessageRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.PopularLocationRepositories;
+using HousesOfTheFuture_Dapper_Api.Repositories.ProductImageRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.ProductRepository;
 using HousesOfTheFuture_Dapper_Api.Repositories.ServiceRepository;
 using HousesOfTheFuture_Dapper_Api.Repositories.StatisticsRepositories;
@@ -37,6 +38,7 @@ builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
 builder.Services.AddTransient<IChartRepository, ChartRepository>();
 builder.Services.AddTransient<ILast5ProductsRepository, Last5ProductRepository>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
+builder.Services.AddTransient<IProductImageRepository, ProductImageRepository>();
 
 
 
