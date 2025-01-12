@@ -1,5 +1,6 @@
 
 using HousesOfTheFuture_Dapper_Api.Models.DapperContext;
+using HousesOfTheFuture_Dapper_Api.Repositories.AppUserRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.BottomGridRepositories;
 using HousesOfTheFuture_Dapper_Api.Repositories.CategoryRepository;
 using HousesOfTheFuture_Dapper_Api.Repositories.ContactRepositories;
@@ -39,6 +40,7 @@ builder.Services.AddTransient<IChartRepository, ChartRepository>();
 builder.Services.AddTransient<ILast5ProductsRepository, Last5ProductRepository>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddTransient<IProductImageRepository, ProductImageRepository>();
+builder.Services.AddTransient<IAppUserRepository, AppUserRepository>();
 
 
 
