@@ -17,7 +17,7 @@ namespace HousesOfTheFuture_Dapper_UI.ViewComponents.HomePage
         public async Task <IViewComponentResult> InvokeAsync()
         {   
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44314/api/Products/ProductListWithCategory");
+            var responseMessage = await client.GetAsync("https://localhost:44314/api/Products/GetProductByDealOfTheDayTrueWithCategory");
             if (responseMessage.IsSuccessStatusCode) 
             { 
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
