@@ -47,6 +47,7 @@ namespace HousesOfTheFuture_Dapper_UI.Controllers
             ViewBag.city = values.city;
             ViewBag.district = values.district;
             ViewBag.address = values.address;
+            ViewBag.description = values.description;
 
             ViewBag.bathCount = values2.bathCount;
             return View(values);
